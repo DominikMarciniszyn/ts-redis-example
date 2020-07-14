@@ -1,0 +1,29 @@
+{
+  "name": "ts-redis-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DominikMarciniszyn/ts-redis-example.git"
+  },
+  "author": "Rouch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DominikMarciniszyn/ts-redis-example/issues"
+  },
+  "homepage": "https://github.com/DominikMarciniszyn/ts-redis-example#readme",
+  "devDependencies": {
+    "tslib": "2.0.0",
+    "ts-node": "8.10.2",
+    "typescript": "3.9.5"
+  },
+  "dependencies": {
+    "@types/redis": "2.8.6",
+    "redis": "3.0.2"
+  }
+}
