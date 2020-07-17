@@ -3,7 +3,6 @@ import redis from 'redis';
 
 export default class RedisClient {
   private client: redis.RedisClient;
-  private cacheData: string;
 
   constructor(port, host) {
     this.client = redis.createClient(port, host);
@@ -23,7 +22,7 @@ export default class RedisClient {
         throw new Error(error.message);
       }
 
-      this.cacheData = reply;
+      console.log(reply);
     });
   }
 }

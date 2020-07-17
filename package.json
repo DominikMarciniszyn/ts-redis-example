@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@types/redis": "2.8.6",
+    "handy-redis": "1.8.3",
     "redis": "3.0.2"
   }
 }
