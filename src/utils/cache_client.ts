@@ -34,7 +34,7 @@ export default class CacheClient {
    *
    * @param key
    */
-  readFromCache = async (key: string): Promise<string> => {
+  readFromCache = async (key: string): Promise<string | null> => {
     return await this.client.get(key);
   }
 
