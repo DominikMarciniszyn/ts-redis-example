@@ -1,21 +1,20 @@
-// NODE-REDIS CLIENT
-// import RedisClient from './utils/redis_client';
+import CacheClient from './utils/cache_client';
 
 
-// const client = new RedisClient(6379, '127.0.0.1');
-// client.writeToRedis('new-test0', 'My value awesome 1');
-// console.log('After write to cache');
-// client.readFromRedis('new-test0');
+const main = async () => {
+  const client = new CacheClient(6379, '127.0.0.1');
+  const key = 'test-key';
+  const value = 'The information for Redis...';
+
+  client.writeToCache(key, value);
+
+  let message = await client.readFromCache(key);
+
+  console.log(`The value in Redis for key: ${key} is ${message}`);
+
+  let isInCache = await client.isKeyInCache(key);
+  console.log(`Is the value in cache? ${isInCache}`);
+}
 
 
-
-// HANDY-REDIS CLIENT
-import HandyClient from './utils/handy_redis_client';
-
-const client = new HandyClient(6379, '127.0.0.1');
-
-client.handyWriteToCache('ala', 'ma kota w redisie');
-
-let x = client.handyReadFromCache('ala');
-
-console.log(`Why my value of X is not what I expect? ${x}`);
+main();
