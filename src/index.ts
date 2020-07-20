@@ -6,7 +6,7 @@ const main = async () => {
   const key = 'test-key';
   const value = 'The information for Redis...';
 
-  client.writeToCache(key, value);
+  await client.writeToCache(key, value);
 
   let message = await client.readFromCache(key);
 
