@@ -1,15 +1,44 @@
 import CacheClient from '../src/utils/cache_client';
 
 
-test('Check what is in the cache', async () => {
-  let client = new CacheClient(6379, '127.0.0.1');
-  const key = 'this-is-real-key';
-  const value = 'this-is-real-value';
-  await client.writeToCache(key, value);
+describe('Test Redis Cache Client', () => {
+  const client = new CacheClient(6379, '127.0.0.1');
 
-  const data = await client.readFromCache(key);
+  afterAll(async () => {
+    await client.closeConnection();
+  });
 
-  await expect(data).toBe(value);
+  test('Test of saving and writing, should return the same value as set', async () => {
+    const key = 'this-is-real-key';
+    const value = 'this-is-real-value';
+    await client.writeToCache(key, value);
 
-  client.closeConnection();
+    const data = await client.readFromCache(key);
+
+    await expect(data).toBe(value);
+  });
+
+  test('Test if given key to read does not exist, should return null', async () => {
+    const key = 'not-exist';
+    const data = await client.readFromCache(key);
+
+    await expect(data).toBe(null);
+  });
+
+  test('Test if key is inside redis, should return true', async () => {
+    const key = 'key-to-add';
+    const value = 'value-of-key-to-add';
+
+    await client.writeToCache(key, value);
+    const result = await client.isKeyInCache(key);
+
+    await expect(result).toBe(true);
+  });
+
+  test('Test if key is inside redis, should return false', async () => {
+    const key = 'key-which-does-not-exits';
+    const result = await client.isKeyInCache(key);
+
+    await expect(result).toBe(false);
+  });
 });
