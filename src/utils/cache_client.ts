@@ -6,6 +6,7 @@ import { createHandyClient, IHandyRedis } from 'handy-redis';
  */
 export default class CacheClient {
   private client: IHandyRedis;
+  private readonly VALUE_EXISTS = 1;
 
   /**
    * Create new cache client.
@@ -34,7 +35,7 @@ export default class CacheClient {
    *
    * @param key
    */
-  readFromCache = async (key: string): Promise<string> => {
+  readFromCache = async (key: string): Promise<string | null> => {
     return await this.client.get(key);
   }
 
@@ -42,14 +43,23 @@ export default class CacheClient {
    * Check if key is inside the redis.
    *
    * @param key Redis key.
+   *
+   * @returns True if key exists, false if don't.
    */
   isKeyInCache = async (key: string): Promise<boolean> => {
     const isKeyInCache = await this.client.exists(key);
 
-    if (isKeyInCache === 0) {
+    if (isKeyInCache !== this.VALUE_EXISTS) {
       return false;
     } else {
       return true;
     }
+  }
+
+  /**
+   * Close connection to Redis.
+   */
+  closeConnection = async (): Promise<void> => {
+    this.client.quit();
   }
 };
