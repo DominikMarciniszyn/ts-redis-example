@@ -11,5 +11,5 @@ test('Check what is in the cache', async () => {
 
   await expect(data).toBe(value);
 
-  client.endConnection();
+  client.closeConnection();
 });
