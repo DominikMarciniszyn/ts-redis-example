@@ -7,3 +7,5 @@ This is simple Redis client written in Typescript and Python. The Python version
 - Run the package via ```npm start``` command
 - Run tests via ```npm test``` command
 
+## Additional notes
+To perform local tests you need to have running redis instance.
