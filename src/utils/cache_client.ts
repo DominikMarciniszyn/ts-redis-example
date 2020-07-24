@@ -49,17 +49,13 @@ export default class CacheClient {
   isKeyInCache = async (key: string): Promise<boolean> => {
     const isKeyInCache = await this.client.exists(key);
 
-    if (isKeyInCache !== this.VALUE_EXISTS) {
-      return false;
-    } else {
-      return true;
-    }
+    return isKeyInCache === this.VALUE_EXISTS;
   }
 
   /**
    * Close connection to Redis.
    */
   closeConnection = async (): Promise<void> => {
-    this.client.quit();
+    await this.client.quit();
   }
 };
