@@ -8,7 +8,6 @@ This is simple Redis client written in Typescript. The client has got few option
 
 ## How to run
 - Install the package via ```npm install``` command
-- Run the package via ```npm start``` command
 - Run tests via ```npm test``` command
 
 ## Additional notes
