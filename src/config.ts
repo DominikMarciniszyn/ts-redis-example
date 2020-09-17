@@ -1,5 +1,5 @@
 import { config as loadEnv } from 'dotenv';
-import { str, num, cleanEnv, testOnly, CleanEnv } from 'envalid';
+import { str, num, cleanEnv, CleanEnv } from 'envalid';
 
 const dotEnvPath = process.env.NODE_ENV === 'test' ? '.env.test' : undefined;
 
