@@ -15,14 +15,14 @@ describe('Test Redis Cache Client', () => {
 
     const data = await client.readFromCache(key);
 
-    await expect(data).toBe(value);
+    await expect(data).toEqual(value);
   });
 
   test('Test if given key to read does not exist, should return null', async () => {
     const key = 'not-exist';
     const data = await client.readFromCache(key);
 
-    await expect(data).toBe(null);
+    await expect(data).toBeNull();
   });
 
   test('Test if key is inside redis, should return true', async () => {

@@ -1,6 +1,10 @@
 # ts-redis-example
 
-This is simple Redis client written in Typescript and Python. The Python version needs to be finished. The client has got options which I needed.
+This is simple Redis client written in Typescript. The client has got few options:
+- add to redis cache
+- remove from redis cache
+- check if the key exists in redis cache
+- read value from redis cache
 
 ## How to run
 - Install the package via ```npm install``` command

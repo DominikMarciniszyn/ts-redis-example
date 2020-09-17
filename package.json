@@ -4,7 +4,6 @@
   "description": "",
   "main": "src/index.ts",
   "scripts": {
-    "start": "ts-node src/index.ts",
     "test": "jest --config jest-config.json"
   },
   "repository": {
