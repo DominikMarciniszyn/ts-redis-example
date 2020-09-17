@@ -6,7 +6,7 @@ export const config = cleanEnv(
   {
     REDIS_PORT: num(),
     REDIS_HOST: str()
-  }
+  },
 );
 
 export type AppConfig = Readonly<{
