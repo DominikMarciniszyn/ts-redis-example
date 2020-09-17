@@ -27,6 +27,7 @@
     "typescript": "4.0.2"
   },
   "dependencies": {
+    "dotenv": "8.2.0",
     "envalid": "6.0.2",
     "handy-redis": "1.8.3"
   }
