@@ -13,3 +13,6 @@ This is simple Redis client written in Typescript. The client has got few option
 
 ## Additional notes
 To perform local tests you need to have running redis instance.
+The project must contain the .env file with values:
+- REDIS_HOST=<address>
+- REDIS_PORT=<port>
